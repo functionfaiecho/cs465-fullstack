@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const hbs = require("hbs");
+require("./app_api/models/db");
 
 var indexRouter = require("./app_server/routes/index");
 var usersRouter = require("./app_server/routes/users");
@@ -13,12 +14,13 @@ var newsRouter = require("./app_server/routes/news");
 var mealsRouter = require("./app_server/routes/meals");
 var contactRouter = require("./app_server/routes/contact");
 var aboutRouter = require("./app_server/routes/about");
+var apiRouter = require("./app_api/routes/index");
 
 var app = express();
 
-// view engine setup
+// Engine setup
 app.set("views", path.join(__dirname, "app_server", "views"));
-// register handlebars partials (https://www.npmjs.com/package/hbs)
+// Register handlebars partials (https://www.npmjs.com/package/hbs)
 hbs.registerPartials(path.join(__dirname, "app_server", "views/partials"));
 app.set("view engine", "hbs");
 
@@ -36,19 +38,20 @@ app.use("/news", newsRouter);
 app.use("/meals", mealsRouter);
 app.use("/contact", contactRouter);
 app.use("/about", aboutRouter);
+app.use("/api", apiRouter);
 
-// catch 404 and forward to error handler
+// 404 Error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Handle more errors
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
+  // Errors only in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // render the error page
+  // Error page
   res.status(err.status || 500);
   res.render("error");
 });

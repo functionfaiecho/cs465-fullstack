@@ -30,10 +30,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// Enable CORS
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // Update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// CORS
+app.use("/api", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   next();
 });
 
@@ -47,18 +51,18 @@ app.use("/contact", contactRouter);
 app.use("/about", aboutRouter);
 app.use("/api", apiRouter);
 
-// 404 Error handler
+// 404 fishing line
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// Handle more errors
+// Handle error
 app.use(function (err, req, res, next) {
-  // Errors only in development
+  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // Error page
+  // Error
   res.status(err.status || 500);
   res.render("error");
 });

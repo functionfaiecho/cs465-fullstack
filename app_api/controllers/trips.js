@@ -3,8 +3,8 @@ const Trip = require("../models/travlr"); // Register model
 const Model = mongoose.model("trips");
 
 // GET: /trips - list all the trips
-// Regardless of outcome, response must include HTML status code
-// and JSON message to the requesting client
+// Regardless of outcome, response must include HTML status code...
+// and JSON message to the requesting client - ok.
 const tripsList = async (req, res) => {
   const q = await Model.find({}) // No filter, return all records
     .exec();
@@ -36,7 +36,7 @@ const tripsFindByCode = async (req, res) => {
   }
 };
 
-// PUT: /trips/:tripCode - Updates a Trip
+// PUT: /trips/:tripCode - Updates trip.
 // Regardless of outcome, response must include HTML status code
 // and JSON message to the requesting client
 const tripsUpdateTrip = async (req, res) => {

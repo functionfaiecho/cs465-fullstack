@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trips } from '../data/trips';
 import { TripCardComponent } from '../trip-card/trip-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trip-listing',
@@ -13,9 +14,15 @@ import { TripCardComponent } from '../trip-card/trip-card.component';
 export class TripListingComponent implements OnInit {
   trips: Array<any> = trips;
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     
+  }
+
+  public addTrip(): void {
+    this.router.navigate(['add-trip']);
   }
 }

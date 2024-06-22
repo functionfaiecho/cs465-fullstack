@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 export class TripListingComponent implements OnInit {
   trips!: Trip[];
   message: string = '';
-
+  
   constructor(
     private tripDataService: TripDataService,
     private router: Router

@@ -18,5 +18,7 @@ In the full-stack development process, there were isntances when I refactored co
 HTTP methods are a different type of interactions that a client can have with a server. Most commonly, HTTP methods include GET, POST, PUT and DELETE. The API endpoints are how clients can communicate with the server. Where security was concerned, users had a valid JWT (Json Web Token) so they could access some of the endpoints.
 
 # Reflection
-As someone who enjoys full-stack development, this course has helped me to expand my knowledge and practice developing them. My other endeavour with full-stack development was one where I built an application that was a quick-answer guide to living in another country, mostly for expatriates. 
+As someone who enjoys full-stack development, this course has helped me to expand my knowledge and practice developing them. My other endeavour with full-stack development was one where I built an application that was a quick-answer guide to living in another country, mostly for expatriates. I've also learned to adapt and improvise when things don't go exactly as planned. A lot of programming is about finding solutions to a problem - some things did not turn up the way they should have according to the guide, so I had to turn to looking for ways to make things work. I enjoyed this class very much, and I look forward to applying what I learned to more projects.
+
+I feel that I've gained a better undestanding as to how Express and Node js work. Above all, I feel that I can be quicker and more efficient when I develop applications next time.
 
